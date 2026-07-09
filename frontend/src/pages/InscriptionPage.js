@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { authService } from '../services/api';
 import './InscriptionPage.css';
 
 const InscriptionPage = () => {
-  // const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [typeCompte, setTypeCompte] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,7 +34,7 @@ const InscriptionPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    setLoading(true);
+    loading(true);
 
     try {
       const data = {
@@ -48,7 +47,7 @@ const InscriptionPage = () => {
       await authService.inscription(data);
       setStep(3);
     } catch (err) {
-      setError(err.response?.data?.message || 'Erreur lors de l\'inscription');
+      setError(err.response?.data?.message || "Erreur lors de l'inscription");
     } finally {
       setLoading(false);
     }
@@ -227,17 +226,4 @@ const InscriptionPage = () => {
             </div>
 
             <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-              {loading ? 'Création en cours...' : 'Créer mon compte'}
-            </button>
-
-            <button type="button" className="btn btn-secondary btn-full" onClick={() => setStep(1)}>
-              ← Retour
-            </button>
-          </form>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default InscriptionPage;
+              {loading ? 'Cré

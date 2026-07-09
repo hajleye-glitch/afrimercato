@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// import { useNavigate, Link } from 'react-router-dom';
 import { authService } from '../services/api';
 import './InscriptionPage.css';
 
 const InscriptionPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [typeCompte, setTypeCompte] = useState('');
   const [loading, setLoading] = useState(false);
